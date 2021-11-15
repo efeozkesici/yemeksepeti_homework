@@ -60,16 +60,15 @@ def define_order(request):
 def approve_order(request):
     p = redis_client.pubsub()
     p.subscribe('order')
+    data = JSONParser().parse(request)
     while True:
         message = p.get_message()
-        if message and not message['data'] == 1:
+        if message and not message['data'] is 1:
             message = message['data'].decode('utf-8')
             try:
-                serializer = OrderSerializer(data=message)
-                if serializer.is_valid():
+                if message['user'] is data['user']:
+                    serializer = OrderSerializer(data=message)
                     serializer.save()
                     return JsonResponse(serializer.data, status=status.HTTP_200_OK)
-                else:
-                    return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             except:
                 return JsonResponse({"error":"An error occured"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
