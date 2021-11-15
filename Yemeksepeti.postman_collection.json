@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "aee36fc5-a677-4e08-a9ba-1602e2aaaa66",
+		"name": "Yemeksepeti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"user\": 3\r\n    }  \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/get_orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get_orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Defiine Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"user\": 3,\r\n    \"foodName\": \"Döner\",\r\n    \"categoryName\": \"Döner/Kebap\",\r\n    \"restaurant\":\"Süper Dönerci\"\r\n}  \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/define_order/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"define_order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"user\": 1\r\n    }  \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/approve_order/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"approve_order",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
